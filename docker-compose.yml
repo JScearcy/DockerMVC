@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  dockermvc:
+    image: dockermvc
+    build:
+      context: ./DockerMVC
+      dockerfile: Dockerfile
+
+  dockerwebapi:
+    image: dockerwebapi
+    build:
+      context: ./DockerWebAPI
+      dockerfile: Dockerfile

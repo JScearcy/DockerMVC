@@ -1,0 +1,23 @@
+﻿@model DockerMVC.Models.TodoViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div>
+    <form class="add-form">
+        <input type="text" id="add-name" />
+        <button class="btn btn-default add-btn">Add</button>
+    </form>
+    <div id="todo-container">
+        @foreach (var todo in Model.Todos)
+        {
+            <todo todo-id="@todo.Id" todo-name="@todo.Name" todo-completed="@todo.Complete"></todo>
+        }
+    </div>
+</div>
+<script id="todo-template" type="text/x-custom-template">
+    <div data-id="##todoId##" data-name="##todoName##" data-complete="##isComplete##" class="row todo-element">
+        <input type="checkbox" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 complete-chk" ##completedTodo##>
+        <p class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 todo-name">##todoName##</p>
+        <button data-id="1" class="btn btn-warning delete-btn">Delete</button>
+    </div>
+</script>
